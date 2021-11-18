@@ -1,0 +1,82 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows some info",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "Help Menu",
+          "url": "",
+          "authorname": "Bot Name Here",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "This is the embed description, replace this with some info about your bot!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "sendappmessage",
+      "perms": [
+        "owner"
+      ],
+      "actions": [
+        {
+          "name": "Message",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Submit Application",
+                  "customid": "submitapplication",
+                  "style": "PRIMARY",
+                  "emoji": "",
+                  "URL": ""
+                }
+              ]
+            }
+          ],
+          "channelname": "910677762568781844",
+          "color": "8843C4",
+          "title": "Click below to submit application",
+          "url": "",
+          "authorname": "Submit application",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "You will be asked a series of questions in a separate channel.",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Note: You may only submit 1 application.",
+          "timestamp": "false",
+          "savetovariable": "appmessage",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
