@@ -1,0 +1,984 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkChannel",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [],
+          "falseActions": [],
+          "messageActionRows": [],
+          "varname": "${serverVars.newAppChannel.id}",
+          "savevartype": "temp",
+          "compare": "equal to",
+          "value": "${tempVars.anymessage.channel.id}"
+        },
+        {
+          "name": "checkcurrentQuestion",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "selectedRole_1",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.selectinteraction.member.id}",
+              "field": "selectedExperience",
+              "fieldvalue": "${tempVars.anymessage.content}"
+            },
+            {
+              "name": "clear_2",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "msgcount": "100"
+            },
+            {
+              "name": "Q1_1_1_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [
+                {
+                  "rowtype": "button",
+                  "buttons": [
+                    {
+                      "label": "Cancel Application",
+                      "customid": "cancelApplication",
+                      "style": "SECONDARY",
+                      "emoji": "",
+                      "URL": ""
+                    }
+                  ]
+                }
+              ],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "color": "8843C4",
+              "title": "Who are you?",
+              "url": "",
+              "authorname": "Application",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Please type a brief text about yourself",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "editQuestion_1_1_1",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "currentQuestion",
+              "oper": "+",
+              "value": "1"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "currentQuestion",
+          "compare": "equal to",
+          "value": "3"
+        },
+        {
+          "name": "checkcurrentQuestion_1",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "selectedRole_1_1",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.selectinteraction.member.id}",
+              "field": "selectedInfo",
+              "fieldvalue": "${tempVars.anymessage.content}"
+            },
+            {
+              "name": "clear_2_1",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "msgcount": "100"
+            },
+            {
+              "name": "Q1_1_1_1_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [
+                {
+                  "rowtype": "button",
+                  "buttons": [
+                    {
+                      "label": "Cancel Application",
+                      "customid": "cancelApplication",
+                      "style": "SECONDARY",
+                      "emoji": "",
+                      "URL": ""
+                    }
+                  ]
+                }
+              ],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "color": "8843C4",
+              "title": "Previous Work",
+              "url": "",
+              "authorname": "Application",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "If you have any previous work please send it now.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Type \"none\" if you have no previous work",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "editQuestion_1_1_1_1",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "currentQuestion",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "changechannelperms_2_1",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "permid": "${tempVars.anymessagemember.id}",
+              "permissions": [
+                "ATTACH_FILES"
+              ],
+              "allow": "Allow"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "currentQuestion",
+          "compare": "equal to",
+          "value": "4"
+        },
+        {
+          "name": "checkcurrentQuestion_1_1",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "selectedRole_1_1_1",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.selectinteraction.member.id}",
+              "field": "selectedPastWork",
+              "fieldvalue": "${tempVars.anymessage.content}"
+            },
+            {
+              "name": "clear_2_1_1",
+              "category": "Channel Action",
+              "type": "Delete All Messages",
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "msgcount": "100"
+            },
+            {
+              "name": "getRole",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "selectedRole",
+              "varname": "currentRole",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "getRole_1",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "selectedExperience",
+              "varname": "currentExperience",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "getRole_1_1",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "selectedInfo",
+              "varname": "currentInfo",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "getRole_1_1_1",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.anymessagemember.id}",
+              "field": "selectedPastWork",
+              "varname": "currentPastWork",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "changechannelperms_3",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "910677762568781844",
+              "permid": "${tempVars.anymessagemember.id}",
+              "permissions": [
+                "VIEW_CHANNEL"
+              ],
+              "allow": "Deny"
+            },
+            {
+              "name": "changechannelperms_3_1",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "permid": "${tempVars.anymessagemember.id}",
+              "permissions": [
+                "SEND_MESSAGES",
+                "ATTACH_FILES"
+              ],
+              "allow": "Deny"
+            },
+            {
+              "name": "Q1_1_1_1_1_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Role:",
+                  "value": "${tempVars.currentRole}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Experience:",
+                  "value": "${tempVars.currentExperience}",
+                  "inline": "false"
+                },
+                {
+                  "name": "Info:",
+                  "value": "${tempVars.currentInfo}",
+                  "inline": "false"
+                },
+                {
+                  "name": "Past Work:",
+                  "value": "${tempVars.currentPastWork}",
+                  "inline": "false"
+                }
+              ],
+              "messageActionRows": [],
+              "channelname": "${serverVars.newAppChannel.id}",
+              "color": "8843C4",
+              "title": "Summary",
+              "url": "",
+              "authorname": "Application",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Thank you for submitting an application. Here is a summary of your application:",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Please note it can take from 24 - 48 hours for the application to be reviewed",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "currentQuestion",
+          "compare": "equal to",
+          "value": "5"
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [],
+      "var": {}
+    },
+    {
+      "name": "Channel Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdchannel"
+      }
+    },
+    {
+      "name": "Channel Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedchannel"
+      }
+    },
+    {
+      "name": "Channel Pins Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatepinschannel"
+      }
+    },
+    {
+      "name": "Channel Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatechannel"
+      }
+    },
+    {
+      "name": "Emoji Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdemoji"
+      }
+    },
+    {
+      "name": "Emoji Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedemoji"
+      }
+    },
+    {
+      "name": "Emoji Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatedemoji"
+      }
+    },
+    {
+      "name": "Guild Ban Remove",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Available",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Speaking",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Unavailable",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Typing Start",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "User Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Button Interaction",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkbuttoncustomid",
+          "category": "Control",
+          "type": "Switch Case",
+          "valueActions": {
+            "submitapplication": [
+              {
+                "name": "reply to message_1_1",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Creating new application..."
+              },
+              {
+                "name": "createappchanel",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "${tempVars.buttoninteraction.member.displayName}'s application",
+                "chancategory": "910849475080228894",
+                "reason": "",
+                "channeltype": "Text",
+                "savetovariable": "newAppChannel",
+                "savetovariabletype": "server"
+              },
+              {
+                "name": "wait",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "1",
+                "unit": "seconds"
+              },
+              {
+                "name": "clear_1_1",
+                "category": "Channel Action",
+                "type": "Delete All Messages",
+                "messageActionRows": [],
+                "channelname": "910677762568781844",
+                "msgcount": "1"
+              },
+              {
+                "name": "changechannelperms",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "permid": "${tempVars.buttoninteraction.member.id}",
+                "permissions": [
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Deny"
+              },
+              {
+                "name": "changechannelperms_1",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "permid": "910610980403302460",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Deny"
+              },
+              {
+                "name": "changechannelperms_1_1_1",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "permid": "${tempVars.buttoninteraction.member.id}",
+                "permissions": [
+                  "VIEW_CHANNEL"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "changechannelperms_1_1",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "permid": "910651553893994507",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "pingappowner",
+                "category": "Message",
+                "type": "Send Message",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "messagetext": "@${tempVars.buttoninteraction.user.tag}",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Question",
+                "category": "User Data",
+                "type": "Set User Data",
+                "messageActionRows": [],
+                "user": "${tempVars.buttoninteraction.member.id}",
+                "field": "currentQuestion",
+                "fieldvalue": "0"
+              },
+              {
+                "name": "Q1",
+                "category": "Message",
+                "type": "Send Embed",
+                "fields": [
+                  {
+                    "name": "Payment",
+                    "value": "ziptie.entity will not pay you directly however the income from our games will be split evenly between all of the developers. This robux will be sent via group funds every 2 weeks.\n",
+                    "inline": "false"
+                  },
+                  {
+                    "name": "Rules",
+                    "value": "To become a developer you must agree that you will not protest against this.",
+                    "inline": "false"
+                  },
+                  {
+                    "name": "Consequences",
+                    "value": "Breaching this may cause you to loose your developer rights.",
+                    "inline": "false"
+                  }
+                ],
+                "messageActionRows": [
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "Agree",
+                        "customid": "agree",
+                        "style": "SUCCESS",
+                        "emoji": "",
+                        "URL": ""
+                      },
+                      {
+                        "label": "Disagree",
+                        "customid": "disagree",
+                        "style": "DANGER",
+                        "emoji": "",
+                        "URL": ""
+                      },
+                      {
+                        "label": "Cancel",
+                        "customid": "cancelApplication",
+                        "style": "SECONDARY",
+                        "emoji": "",
+                        "URL": ""
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "color": "8843C4",
+                "title": "Terms",
+                "url": "",
+                "authorname": "Application",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "To begin the application please accepts these terms:",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "false",
+                "savetovariable": "Q1",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "editQuestion",
+                "category": "User Data",
+                "type": "Edit User Data",
+                "messageActionRows": [],
+                "user": "${tempVars.buttoninteraction.member.id}",
+                "field": "currentQuestion",
+                "oper": "+",
+                "value": "1"
+              }
+            ],
+            "cancelApplication": [
+              {
+                "name": "reply to message_1",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Cancelling Application..."
+              },
+              {
+                "name": "wait_1",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "3",
+                "unit": "seconds"
+              },
+              {
+                "name": "deleteappchanel",
+                "category": "Channel Action",
+                "type": "Delete Channel",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "reason": "Cancelled Application"
+              }
+            ],
+            "agree": [
+              {
+                "name": "clear_1",
+                "category": "Channel Action",
+                "type": "Delete All Messages",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "msgcount": "100"
+              },
+              {
+                "name": "Q1_1",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [
+                  {
+                    "rowtype": "select",
+                    "customid": "roleSelect",
+                    "placeholdertext": "Select Role...",
+                    "minValue": "1",
+                    "maxValue": "1",
+                    "selectoptions": [
+                      {
+                        "label": "Scripter",
+                        "value": "Scripter",
+                        "description": "",
+                        "emoji": "",
+                        "defaultoption": false
+                      },
+                      {
+                        "label": "Builder/Modeler",
+                        "value": "Builder",
+                        "description": "",
+                        "emoji": "",
+                        "defaultoption": false
+                      },
+                      {
+                        "label": "UI Artist",
+                        "value": "UI Artist",
+                        "description": "",
+                        "emoji": "",
+                        "defaultoption": false
+                      },
+                      {
+                        "label": "GFX Artist",
+                        "value": "GFX Artist",
+                        "description": "",
+                        "emoji": "",
+                        "defaultoption": false
+                      },
+                      {
+                        "label": "Animator",
+                        "value": "Animator",
+                        "description": "",
+                        "emoji": "",
+                        "defaultoption": false
+                      }
+                    ]
+                  },
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "Cancel Application",
+                        "customid": "cancelApplication",
+                        "style": "SECONDARY",
+                        "emoji": "",
+                        "URL": ""
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "color": "8843C4",
+                "title": "Role",
+                "url": "",
+                "authorname": "Application",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Please select the role that you would like to apply for below.",
+                "thumbnail": "",
+                "image": "",
+                "footer": "For multiple roles please submit another application.",
+                "timestamp": "false",
+                "savetovariable": "Q2",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "editQuestion_1",
+                "category": "User Data",
+                "type": "Edit User Data",
+                "messageActionRows": [],
+                "user": "${tempVars.buttoninteraction.member.id}",
+                "field": "currentQuestion",
+                "oper": "+",
+                "value": "1"
+              }
+            ],
+            "disagree": [
+              {
+                "name": "reply to message_1_2",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Your application was denied because you disagreed to the terms. Closing application..."
+              },
+              {
+                "name": "wait_1_1",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "3",
+                "unit": "seconds"
+              },
+              {
+                "name": "deleteappchanel_1",
+                "category": "Channel Action",
+                "type": "Delete Channel",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "reason": "Disagreed to terms"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "varname": "${tempVars.buttoninteraction.customId}"
+        }
+      ],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Select Interaction",
+      "perms": [],
+      "actions": [
+        {
+          "name": "checkselection",
+          "category": "Control",
+          "type": "Switch Case",
+          "valueActions": {
+            "roleSelect": [
+              {
+                "name": "selectedRole",
+                "category": "User Data",
+                "type": "Set User Data",
+                "messageActionRows": [],
+                "user": "${tempVars.selectinteraction.member.id}",
+                "field": "selectedRole",
+                "fieldvalue": "${tempVars.selectinteraction.values}"
+              },
+              {
+                "name": "clear",
+                "category": "Channel Action",
+                "type": "Delete All Messages",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "msgcount": "100"
+              },
+              {
+                "name": "wait_1_1_1",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "1",
+                "unit": "seconds"
+              },
+              {
+                "name": "Q1_1_1",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "Cancel Application",
+                        "customid": "cancelApplication",
+                        "style": "SECONDARY",
+                        "emoji": "",
+                        "URL": ""
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "color": "8843C4",
+                "title": "Experience",
+                "url": "",
+                "authorname": "Application",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Please type how long you have been a ${tempVars.selectinteraction.values}",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "false",
+                "savetovariable": "Q3",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "changechannelperms_2",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.newAppChannel.id}",
+                "permid": "${tempVars.buttoninteraction.member.id}",
+                "permissions": [
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "editQuestion_1_1",
+                "category": "User Data",
+                "type": "Edit User Data",
+                "messageActionRows": [],
+                "user": "${tempVars.selectinteraction.member.id}",
+                "field": "currentQuestion",
+                "oper": "+",
+                "value": "1"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "varname": "${tempVars.selectinteraction.customId}"
+        }
+      ],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Command Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    }
+  ]
+}
